@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { useUser } from 'reactfire';
+import { UserContext } from '../../providers/UserProvider';
+import { LoadingContext } from '../../providers/LoadingProvider';
 import privateRoutes from '../../routes/privateRoutes';
 import publicRoutes from '../../routes/publicRoutes';
+import fallback from '../../routes/fallback';
 import Loader from '../Loader';
 import "./App.css";
-import fallback from '../../routes/fallback';
 
 function App() {
-  const { data: user } = useUser(undefined, { initialData: 'loading' });
+  const user = useContext(UserContext);
+  const { loading } = useContext(LoadingContext);
 
   return (
     <div className="App">
-      { (user === 'loading')
+      { (loading)
         ? <Loader />
         : <Router>
             <Switch>

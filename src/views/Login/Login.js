@@ -1,20 +1,24 @@
-import React from 'react';
-import { useAuth } from 'reactfire';
+import React, { useContext } from 'react';
+import { auth } from '../../api/firebase';
 import { Link, useHistory } from 'react-router-dom';
+import { LoadingContext } from '../../providers/LoadingProvider';
 import LoginForm from '../../components/LoginForm';
 import 'firebase/auth'
 import './Login.css';
 
 function Login({ action }) {
-  const auth = useAuth();
+  const { setLoading } = useContext(LoadingContext);
   const history = useHistory();
 
   async function login(email, password) {
     try {
+      setLoading(true);
       await auth.signInWithEmailAndPassword(email, password);
       history.push('/');
     } catch (error) {
       alert(error)
+    } finally {
+      setLoading(false);
     }
   };
 
