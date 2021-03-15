@@ -1,0 +1,12 @@
+.login-form__input {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.login-form__input:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.login-form__submit-button {
+  width: 100%;
+}

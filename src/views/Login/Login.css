@@ -1,0 +1,10 @@
+.login__action-prompt {
+  margin: .5rem 0;
+}
+
+.login__action-link {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 2px solid #E5E5E5;
+  color: inherit;
+}

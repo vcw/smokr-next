@@ -1,0 +1,17 @@
+.button {
+  appearance: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: .6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+  background: none;
+  border: 2px solid #495867;
+  border-radius: .6rem;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+}
+
+.button:focus {
+  outline-offset: .3rem;
+}

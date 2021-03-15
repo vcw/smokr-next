@@ -1,0 +1,13 @@
+.content {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 4.25rem;
+  padding: 1rem;
+  width: calc(100vw - 4rem);
+  min-height: 30vh;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+}

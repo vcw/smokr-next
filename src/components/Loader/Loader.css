@@ -1,0 +1,28 @@
+.loader {
+  width: 10rem;
+  height: 10rem;
+  border: .5rem solid #495867;
+  border-top: .5rem solid transparent;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .loader__container {
+    /* The hack for Safari */
+    height: -webkit-fill-available;
+  }
+}
