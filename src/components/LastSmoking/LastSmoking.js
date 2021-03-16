@@ -1,11 +1,9 @@
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { cn } from '../../utils/bem';
-import useLastSmoking from '../../hooks/useLastSmoking';
 import './LastSmoking.css';
 
-function LastSmoking() {
-  const [lastSmoking, loading] = useLastSmoking();
+function LastSmoking({ lastSmoking, loading }) {
 
   const b = cn('last-smoking');
 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
-import { getLastSmoking } from '../api/smokr';
+import { getLastSmoking, postSmoking } from '../api/smokr';
 
 function useLastSmoking() {
   const [smoking, setSmoking] = useState(null);
@@ -14,27 +14,43 @@ function useLastSmoking() {
   }, []);
 
   useEffect(() => {
-    async function getSmoking() {
-      try {
-        setLoading(true);
-        const timestamp = await getLastSmoking();
-        const date = moment.unix(timestamp);
-        if (componentIsMounted.current) {
-          setSmoking(date);
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        if (componentIsMounted.current) {
-          setLoading(false);
-        }
-      }
-    }
-
     getSmoking();
   }, []);
 
-  return [smoking, loading];
+  async function getSmoking() {
+    try {
+      setLoading(true);
+      const timestamp = await getLastSmoking();
+      const date = moment.unix(timestamp);
+      if (componentIsMounted.current) {
+        setSmoking(date);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      if (componentIsMounted.current) {
+        setLoading(false);
+      }
+    }
+  }
+
+  async function recordSmoking() {
+    try {
+      setLoading(true);
+      const timestamp = moment().unix();
+      const status = postSmoking(timestamp);
+      if (status === 'Fail') {
+        throw new Error(status);
+      }
+      await getSmoking();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return [smoking, loading, recordSmoking];
 }
 
 export default useLastSmoking;

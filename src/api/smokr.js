@@ -18,3 +18,19 @@ export const getLastSmoking = async () => {
 
   return timestamp;
 };
+
+export const postSmoking = async (timestamp) => {
+  const token = await auth.currentUser.getIdToken();
+  const response = await axios({
+    method: 'post',
+    url: 'https://smokrapp.herokuapp.com/api/smokings/',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data: {
+      timestamp,
+    }
+  });
+  const { status } = response;
+  return status;
+}
