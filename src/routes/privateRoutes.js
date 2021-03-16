@@ -7,13 +7,14 @@ import Header from '../components/Header';
 import Content from '../components/Content';
 import Navbar from '../components/Navbar';
 import Settings from '../views/Settings';
+import Main from '../views/Main';
 
 const privateRoutesList = [
   {
     name: 'Главная',
     path: '/',
     icon: <HomeIcon />,
-    view: <h1>TEST</h1>,
+    view: <Main />,
   },
   {
     name: 'Статистика',
