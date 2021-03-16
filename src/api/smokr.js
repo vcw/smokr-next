@@ -10,6 +10,11 @@ export const getLastSmoking = async () => {
       Authorization: `Bearer ${token}`,
     },
   });
-  const { timestamp } = response.data;
+  const { timestamp, error } = response.data;
+
+  if (error) {
+    throw new Error(error);
+  }
+
   return timestamp;
 };

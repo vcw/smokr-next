@@ -3,7 +3,6 @@ import { auth } from '../../api/firebase';
 import { Link, useHistory } from 'react-router-dom';
 import { LoadingContext } from '../../providers/LoadingProvider';
 import LoginForm from '../../components/LoginForm';
-import 'firebase/auth'
 import './Login.css';
 
 function Login({ action }) {

@@ -8,13 +8,11 @@
   font-style: normal;
   font-weight: 500;
   font-size: 1.5rem;
-  min-width: 9rem;
 }
 
 .last-smoking__date-time {
   margin: 0;
   text-align: right;
-  min-width: 5.5rem;
 }
 
 .last-smoking__time {
